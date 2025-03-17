@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Memories with Nathalie</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f4e1ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+        }
+        .audio-button {
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #8a2be2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #6a1bb5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>📽️ Our Beautiful Memories 📽️</h1>
+        
+        <video autoplay loop muted>
+            <source src="d.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Audio player with manual button -->
+        <button id="audioButton" class="audio-button">🎵</button>
+        <audio id="backgroundAudio" loop>
+            <source src="master.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+
+        <br>
+        <button class="btn" onclick="goBack()">⬅ Go Back</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        // Handle manual audio play and remove the button
+        const audio = document.getElementById("backgroundAudio");
+        const audioButton = document.getElementById("audioButton");
+
+        audioButton.addEventListener("click", function () {
+            audio.play();
+            audioButton.style.display = "none"; // Hide the button after playing
+        });
+    </script>
+
+</body>
+</html>

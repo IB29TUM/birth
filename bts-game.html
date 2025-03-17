@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS Song Guessing Game</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #d9b3ff;
+        }
+        .container {
+            margin-top: 30px;
+            padding: 20px;
+        }
+        .game-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+            display: inline-block;
+            max-width: 600px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #999;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #8a2be2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #6a1bb5;
+        }
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        #btsGif {
+            display: none;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎮 BTS Song Guessing Game 🎮</h1>
+        <div class="game-box">
+            <p><strong>Guess the BTS song from the lyrics below:</strong></p>
+            <p><i>"Cause I, I, I'm in the stars tonight, so watch me bring the fire and set the night alight!"</i></p>
+            
+            <input type="text" id="userGuess" placeholder="Type the song name here...">
+            <br>
+            <button class="btn" onclick="checkAnswer()">Submit</button>
+            
+            <p id="result"></p>
+            <img id="btsGif" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2E1Y2liMzNja2dzNXBqZ2FuNjY1bWFiamh4YTE0a2ViY2xjZzJwbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hIUcNU7SvcF6efPuMg/giphy.gif" alt="BTS GIF">
+        </div>
+        <br>
+        <button class="btn" onclick="goBack()">⬅ Go Back</button>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            let correctAnswer = "Dynamite";  // Change this to any BTS song!
+            let userAnswer = document.getElementById("userGuess").value.trim().toLowerCase();
+            
+            if (userAnswer === correctAnswer.toLowerCase()) {
+                document.getElementById("result").innerHTML = "🎉 Correct! You are a true ARMY! 💜";
+                document.getElementById("btsGif").style.display = "block";
+            } else {
+                document.getElementById("result").innerHTML = "❌ Nope! Try again! 😉";
+                document.getElementById("btsGif").style.display = "none";
+            }
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>
